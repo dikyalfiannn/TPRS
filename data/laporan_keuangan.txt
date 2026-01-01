@@ -1,0 +1,13 @@
+========================================
+       LAPORAN KEUANGAN RS SELAMET
+========================================
+Tanggal: 01-01-2026
+
+Total Pasien Terdaftar: 5
+Pasien BPJS: 3
+Pasien Tunai: 2
+
+Pendapatan dari Pasien Tunai: Rp 300000
+(Tarif: Rp 150.000 per pasien tunai)
+
+========================================

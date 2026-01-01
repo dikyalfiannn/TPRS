@@ -1,0 +1,3 @@
+DR001|Dr. Andi Saputra|Umum|1234|10
+DR002|Dr. Siti Rahayu|Gigi|5678|10
+DR003|Dr. Bambang Hermawan|Jantung|9012|10
