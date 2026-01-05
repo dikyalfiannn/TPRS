@@ -6,7 +6,7 @@ Sistem manajemen rumah sakit dengan 3 role (Pasien, Dokter, Admin) menggunakan s
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/dikyalfiannn/TPRS.git
+git clone https://github.com/dikyalfiannn/TPRS
 cd TPRS
 ```
 
