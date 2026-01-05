@@ -1,12 +1,6 @@
 # RS SELAMET - Hospital Management System
 
-Sistem manajemen rumah sakit berbasis console C++ dengan 3 role (Pasien, Dokter, Admin) menggunakan struktur data manual (Double Linked List, Queue, Stack, Huffman Tree).
-
-## 📋 Requirements
-
-- **Compiler**: g++ (MinGW/MSYS2 untuk Windows, GCC untuk Linux)
-- **C++ Standard**: C++11 atau lebih tinggi
-- **OS**: Windows / Linux / macOS
+Sistem manajemen rumah sakit dengan 3 role (Pasien, Dokter, Admin) menggunakan struktur data Double Linked List, Queue, Stack, Huffman Tree).
 
 ## 🚀 Cara Menjalankan Program
 
@@ -22,20 +16,10 @@ cd TPRS
 g++ -o RS_SELAMET.exe main.cpp -std=c++11
 ```
 
-**Linux/macOS:**
-```bash
-g++ -o RS_SELAMET main.cpp -std=c++11
-```
-
 ### 3. Jalankan Program
 **Windows:**
 ```bash
 .\RS_SELAMET.exe
-```
-
-**Linux/macOS:**
-```bash
-./RS_SELAMET
 ```
 
 ### 4. Menu Utama
@@ -192,64 +176,3 @@ TPRS/
 └── README.md          # Dokumentasi
 ```
 
----
-
-## ✨ Fitur Utama
-
-### 👤 Pasien
-- ✅ Login dengan NIK atau Username
-- ✅ Booking dokter dengan pilihan spesialisasi
-- ✅ Chat konsultasi online dengan dokter
-- ✅ Lihat riwayat chat dan pemeriksaan
-- ✅ Pilihan pembayaran (BPJS/Tunai)
-
-### 👨‍⚕️ Dokter
-- ✅ Login dengan ID dan PIN
-- ✅ Lihat antrean pasien (Queue FIFO)
-- ✅ Inbox chat dari pasien
-- ✅ Balas konsultasi online
-- ✅ Periksa pasien dan input diagnosa
-- ✅ Riwayat pemeriksaan otomatis tersimpan
-
-### 🔐 Admin
-- ✅ Kelola dokter (Tambah/Hapus/Edit)
-- ✅ Kelola pasien (Lihat/Hapus)
-- ✅ Backup data dengan Huffman compression
-- ✅ Laporan keuangan (BPJS vs Tunai)
-- ✅ Export laporan ke file
-
----
-
-## 🛠️ Teknologi & Struktur Data
-
-### Struktur Data Manual
-- **Double Linked List**: Database pasien (insert, delete, search)
-- **Queue (FIFO)**: Antrean pasien per dokter
-- **Stack**: Navigasi menu (history)
-- **Huffman Tree**: Kompresi backup data
-
-### Library yang Digunakan
-- `<iostream>` - Input/output console
-- `<fstream>` - File persistence
-- `<string>` - Manipulasi string
-- `<cstdlib>` - System functions
-
-**TIDAK menggunakan**: STL containers (vector, list, queue, stack, map, dll). Semua struktur data dibuat manual.
-
----
-
-## 📝 Catatan
-
-- File data tersimpan di folder `data/`
-- Riwayat pemeriksaan otomatis ter-record
-- Chat dapat dibalas oleh dokter
-- Laporan keuangan dapat di-export
-- Backup menggunakan kompresi Huffman
-
----
-
-## 👨‍💻 Developer
-
-Dibuat untuk Tugas Proyek Struktur Data
-
-**Repository**: [github.com/dikyalfiannn/TPRS](https://github.com/dikyalfiannn/TPRS)
