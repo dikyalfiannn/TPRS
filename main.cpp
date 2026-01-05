@@ -2,6 +2,7 @@
 #include "pasien/pasien.h"
 #include "dokter/dokter.h"
 #include "admin/admin.h"
+#include "datastructure/avl.h"
 #include <iostream>
 #include <cstdlib>
 using namespace std;
@@ -11,6 +12,7 @@ int main() {
     Dokter dokterList[10];
     int jumlahDokter = 0;
     NodeQueue* queueDokter[10];
+    NodeAVL* avlDokter = NULL;
     
     for(int i = 0; i < 10; i++) {
         queueDokter[i] = NULL;
@@ -18,6 +20,8 @@ int main() {
     
     muatDataPasien(headPasien, tailPasien);
     muatDataDokter(dokterList, jumlahDokter);
+    
+    avlDokter = buildAVLFromArray(dokterList, jumlahDokter);
     
     int pilihan;
     
@@ -31,7 +35,8 @@ int main() {
         cout << "2. Login Dokter\n";
         cout << "3. Login Admin\n";
         cout << "4. Registrasi Pasien Baru\n";
-        cout << "5. Keluar\n";
+        cout << "5. Lihat Daftar Dokter (Sorted by Nama)\n";
+        cout << "6. Keluar\n";
         cout << "\nPilih menu: ";
         cin >> pilihan;
         
@@ -79,12 +84,19 @@ int main() {
             registrasiPasien(headPasien, tailPasien);
             system("pause");
         } else if(pilihan == 5) {
+            system("cls");
+            cout << "\n=== Daftar Dokter (Sorted by Nama A-Z) ===\n\n";
+            tampilkanSorted(avlDokter);
+            cout << "\nTekan Enter untuk kembali...";
+            cin.ignore();
+            cin.get();
+        } else if(pilihan == 6) {
             simpanDataPasien(headPasien);
             simpanDataDokter(dokterList, jumlahDokter);
             cout << "\nTerima kasih telah menggunakan RS SELAMET!\n";
             break;
         } else {
-            cout << "\nInput yang Anda masukkan salah! Silakan pilih 1-5.\n";
+            cout << "\nInput yang Anda masukkan salah! Silakan pilih 1-6.\n";
             system("pause");
         }
     }
