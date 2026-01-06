@@ -7,7 +7,7 @@ using namespace std;
 
 struct NodeAVL {
     Dokter* dataDokter;
-    string nama;  // Key: nama dokter untuk sorting
+    string nama; 
     NodeAVL *left, *right;
     int height;
 };
@@ -29,7 +29,7 @@ int getBalance(NodeAVL* node) {
 NodeAVL* newNode(Dokter* d) {
     NodeAVL* node = new NodeAVL;
     node->dataDokter = d;
-    node->nama = d->nama;  // Key jadi nama
+    node->nama = d->nama; 
     node->left = NULL;
     node->right = NULL;
     node->height = 1;

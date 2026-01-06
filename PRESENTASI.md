@@ -7,7 +7,7 @@
 
 **Nama Proyek**: RS SELAMET (Sistem Manajemen Rumah Sakit Digital)  
 **Bahasa**: C++11  
-**Total Kode**: **1.425 baris** dalam **13 file**  
+**Total Kode**: **~1.645 baris** dalam **13 file**  
 **Struktur Data**: **5 struktur data manual** (DLL, Queue, Stack, Huffman, AVL Tree)  
 **Repository**: [github.com/dikyalfiannn/TPRS](https://github.com/dikyalfiannn/TPRS)
 
@@ -198,18 +198,20 @@ Periksa  → save          → riwayat_pemeriksaan.txt
 
 ## 👥 Anggota Kelompok
 
-### Diky Alfiansyah - **~855 baris (60%)**
+### Diky Alfiansyah - **~987 baris (60%)**
 **Yang Dikerjakan:**
 - ✅ Bikin struktur folder & arsitektur sistem
 - ✅ Implementasi **Double Linked List** untuk database pasien (150 baris)
+- ✅ Implementasi **AVL Tree** untuk sorted dokter by nama (132 baris) **[NEW!]**
 - ✅ Modul **Login & File I/O**: autentikasi + simpan/load data (200 baris)
 - ✅ Modul **Pasien**: booking dokter, chat, riwayat pemeriksaan (310 baris)
 - ✅ Modul **Dokter**: kelola antrean, inbox chat, periksa pasien (270 baris)
-- ✅ **Main program**: menu utama & routing (90 baris)
+- ✅ **Main program**: menu utama & routing (105 baris)
 - ✅ Debugging & error handling
 - ✅ Git repository setup
+- ✅ Dokumentasi (PRESENTASI.md)
 
-### Anggita - **~570 baris (40%)**
+### Anggita - **~658 baris (40%)**
 **Yang Dikerjakan:**
 - ✅ Implementasi **Queue** untuk antrean pasien (100 baris)
 - ✅ Implementasi **Stack** untuk navigasi menu (50 baris)
@@ -217,8 +219,9 @@ Periksa  → save          → riwayat_pemeriksaan.txt
 - ✅ Modul **Admin**: CRUD dokter/pasien, backup, laporan keuangan (240 baris)
 - ✅ **Structs** (KTP, Pasien, Dokter): definisi data (75 baris)
 - ✅ Testing semua fitur & bikin data dummy
-- ✅ Dokumentasi (testing scenarios, presentasi)
+- ✅ Dokumentasi (testing scenarios, README)
 - ✅ Quality assurance
+- ✅ Presentasi materials
 
 ---
 
@@ -493,37 +496,33 @@ backup.dat (1200 bytes) ← lebih kecil
 ```cpp
 struct NodeAVL {
     Dokter* dataDokter;
-    string nama;          // Key untuk sorting (nama dokter)
+    string nama;          
     NodeAVL *left, *right;
     int height;
 };
 
-// Insert dokter ke AVL tree (auto-balance)
+
 NodeAVL* insert(NodeAVL* node, Dokter* d) {
     if(node == NULL) return newNode(d);
     
-    // Compare nama untuk tentukan kiri/kanan
+ 
     if(d->nama < node->nama) {
         node->left = insert(node->left, d);
     } else if(d->nama > node->nama) {
         node->right = insert(node->right, d);
     }
     
-    // Update height
     node->height = 1 + max(height(node->left), height(node->right));
     
-    // Check balance & rotate kalau perlu
     int balance = getBalance(node);
     
     if(balance > 1 && d->nama < node->left->nama) {
         return rotateRight(node);
     }
-    // ... rotasi lainnya ...
     
     return node;
 }
 
-// Tampil sorted (In-Order Traversal)
 void tampilkanSorted(NodeAVL* root) {
     if(root != NULL) {
         tampilkanSorted(root->left);
@@ -533,7 +532,6 @@ void tampilkanSorted(NodeAVL* root) {
     }
 }
 
-// Bonus: Cari dokter by nama O(log n)
 Dokter* cariDokterByNama(NodeAVL* root, string nama) {
     if(root == NULL) return NULL;
     if(nama == root->nama) return root->dataDokter;
@@ -639,13 +637,12 @@ sort(dokterList, dokterList + 3);  // O(n log n)
 
 **Sesudah (pakai AVL tree):**
 ```cpp
-// Insert dokter → otomatis sorted
+
 avl = insert(avl, Dr. Andi);
 avl = insert(avl, Dr. Siti);
 avl = insert(avl, Dr. Bambang);
 
-// Tampil sorted → tinggal traversal
-tampilkanSorted(avl);  // O(n) - udah sorted!
+tampilkanSorted(avl);  
 ```
 
 ---
